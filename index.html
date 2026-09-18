@@ -2,20 +2,120 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Happy Birthday ❤️</title>
-    <meta name="description" content="A little universe made just for you." />
 
-    <!-- Link-preview tags (shown when you share this link on WhatsApp / Instagram / etc.) -->
-    <meta property="og:title" content="Happy Birthday ❤️" />
-    <meta property="og:description" content="A little universe made just for you." />
-    <meta property="og:type" content="website" />
-    <!-- Optional: point this at a hosted image (e.g. your hero photo) once the site is deployed -->
-    <!-- <meta property="og:image" content="https://your-deployed-url.com/preview.png" /> -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Mobile viewport fix -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+
+    <!-- Prevent unwanted phone browser scaling -->
+    <meta
+      name="format-detection"
+      content="telephone=no"
+    />
+
+    <meta
+      name="theme-color"
+      content="#08040a"
+    />
+
+    <meta
+      name="mobile-web-app-capable"
+      content="yes"
+    />
+
+    <meta
+      name="apple-mobile-web-app-capable"
+      content="yes"
+    />
+
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <title>Happy Birthday ❤️</title>
+
+    <meta
+      name="description"
+      content="A little universe made just for you."
+    />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Happy Birthday ❤️"
+    />
+
+    <meta
+      property="og:description"
+      content="A little universe made just for you."
+    />
+
+    <meta
+      property="og:type"
+      content="website"
+    />
+
+    <!-- Optional preview image -->
+    <!--
+    <meta
+      property="og:image"
+      content="https://her-universe-three.vercel.app/preview.png"
+    />
+    -->
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        min-height: 100%;
+        overflow-x: hidden;
+        background: #08040a;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+      }
+
+      body {
+        min-height: 100svh;
+        min-height: 100dvh;
+      }
+
+      #root {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        min-height: 100svh;
+        min-height: 100dvh;
+        margin: 0;
+        padding: 0;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      img,
+      video,
+      canvas,
+      svg {
+        max-width: 100%;
+      }
+    </style>
   </head>
+
   <body>
     <div id="root"></div>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
