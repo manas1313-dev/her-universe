@@ -1748,43 +1748,6 @@ function App() {
       </section>
 
       {/* =================================================
-          SPECIAL SHAYARI
-      ================================================= */}
-
-      <section className="shayari-section">
-        <SecretMarker id={12} className="secret-marker-shayari" onCollect={collectSecret} found={foundSecrets.includes(12)} />
-
-        <motion.div
-          className="shayari-card"
-          initial={{ opacity: 0, y: 50, scale: 0.96 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.9 }}
-        >
-          <div className="shayari-heart">♥</div>
-          <span className="eyebrow">A LITTLE SHAYARI FOR YOU</span>
-
-          <h2>
-            तेरी मुस्कान में कुछ ऐसा नूर है,<br />
-            तेरे होने से ही मेरी दुनिया भरपूर है।<br />
-            दूर होकर भी तू दिल के सबसे पास है,<br />
-            शायद इसी एहसास का नाम प्यार है। ❤️
-          </h2>
-
-          <p className="shayari-birthday">
-            जन्मदिन मुबारक हो, {HER_NAME.split(" (")[0]}…
-          </p>
-
-          <p className="shayari-ending">
-            मेरी हर खूबसूरत कहानी में,<br />
-            एक ख़ास किरदार हमेशा तेरा रहेगा। ✨
-          </p>
-
-          <div className="shayari-number">#1313 ❤️</div>
-        </motion.div>
-      </section>
-
-      {/* =================================================
           #1313 SECRET HUNT
       ================================================= */}
 
@@ -2828,6 +2791,7 @@ function App() {
             }}
           >
             <motion.div
+              className="surprise-video-gallery"
               initial={{ opacity: 0, y: 30, scale: 0.92 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               style={{
@@ -2964,74 +2928,43 @@ function App() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedVideo(null)}
-            style={{
-              position: "fixed",
-              inset: 0,
-              zIndex: 1200,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "20px",
-              background: "rgba(0,0,0,0.94)",
-            }}
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              className="selected-video-player"
+              initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.25 }}
               onClick={(event) => event.stopPropagation()}
-              style={{
-                position: "relative",
-                width: "min(1050px, 100%)",
-                color: "white",
-              }}
             >
               <button
+                className="selected-video-close"
                 onClick={() => setSelectedVideo(null)}
                 aria-label="Close video"
-                style={{
-                  position: "absolute",
-                  top: -52,
-                  right: 0,
-                  width: 42,
-                  height: 42,
-                  borderRadius: "50%",
-                  border: "1px solid rgba(255,255,255,0.25)",
-                  background: "rgba(255,255,255,0.1)",
-                  color: "white",
-                  cursor: "pointer",
-                }}
               >
                 <X size={20} />
               </button>
 
-              <video
-                key={selectedVideo.src}
-                src={selectedVideo.src}
-                autoPlay
-                controls
-                playsInline
-                style={{
-                  display: "block",
-                  width: "100%",
-                  maxHeight: "78vh",
-                  borderRadius: 20,
-                  background: "black",
-                  boxShadow: "0 25px 100px rgba(0,0,0,0.6)",
-                }}
-              />
+              <div className="selected-video-wrapper">
+                <video
+                  className="selected-video-element"
+                  key={selectedVideo.src}
+                  src={selectedVideo.src}
+                  autoPlay
+                  controls
+                  playsInline
+                  preload="metadata"
+                />
+              </div>
 
-              <div style={{ textAlign: "center", paddingTop: 16 }}>
-                <h3 style={{ margin: "0 0 6px", fontSize: 25 }}>
-                  {selectedVideo.title} ❤️
-                </h3>
-                <p style={{ margin: 0, opacity: 0.7 }}>
-                  {selectedVideo.subtitle}
-                </p>
+              <div className="selected-video-info">
+                <h3>{selectedVideo.title} ❤️</h3>
+                <p>{selectedVideo.subtitle}</p>
               </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
+
     </div>
     </>
   );
