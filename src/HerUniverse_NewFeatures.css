@@ -1,0 +1,2277 @@
+/* =========================================================
+   HER UNIVERSE - NEW INTERACTIVE FEATURES
+   ========================================================= */
+
+
+/* =========================================================
+   SECRET HUNT
+   ========================================================= */
+
+.secret-hunt-section {
+  position: relative;
+  padding: 120px 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.secret-hunt-content {
+  width: min(900px, 100%);
+  margin: 0 auto;
+}
+
+.secret-hunt-content h2 {
+  margin: 14px 0;
+  font-size: clamp(38px, 6vw, 70px);
+  line-height: 1.05;
+}
+
+.secret-hunt-content h2 span {
+  display: inline-block;
+  animation: secretGlow 2s ease-in-out infinite;
+}
+
+.secret-hunt-content p {
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.8;
+  opacity: 0.75;
+}
+
+.secret-counter {
+  margin: 25px auto;
+  font-size: 14px;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+.secret-counter strong {
+  font-size: 32px;
+  letter-spacing: 0;
+}
+
+.secret-grid {
+  width: min(760px, 100%);
+  margin: 35px auto 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.secret-spot {
+  min-height: 72px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.055);
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 800;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: 0.25s ease;
+}
+
+.secret-spot:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.secret-spot.found {
+  color: white;
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.12);
+}
+
+@keyframes secretGlow {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+
+/* =========================================================
+   CAKE
+   ========================================================= */
+
+.cake-section {
+  position: relative;
+  padding: 120px 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.cake-content {
+  width: min(700px, 100%);
+  margin: 0 auto;
+}
+
+.cake-content h2 {
+  margin: 14px 0 8px;
+  font-size: clamp(34px, 5vw, 58px);
+}
+
+.cake-content p {
+  opacity: 0.7;
+  line-height: 1.7;
+}
+
+.birthday-cake {
+  position: relative;
+  width: min(340px, 90vw);
+  height: 245px;
+  margin: 55px auto 20px;
+}
+
+.cake-candles {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 34px;
+  align-items: flex-end;
+}
+
+.cake-candle {
+  position: relative;
+  width: 42px;
+  height: 85px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.candle-stick {
+  position: absolute;
+  left: 13px;
+  bottom: 0;
+  width: 16px;
+  height: 62px;
+  border-radius: 8px 8px 3px 3px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 -8px rgba(0, 0, 0, 0.08);
+}
+
+.candle-flame {
+  position: absolute;
+  left: 7px;
+  top: 0;
+  font-size: 30px;
+  animation: flameDance 0.65s ease-in-out infinite alternate;
+  filter: drop-shadow(
+    0 0 12px rgba(255, 210, 120, 0.8)
+  );
+}
+
+@keyframes flameDance {
+  from {
+    transform: scale(0.9) rotate(-4deg);
+  }
+
+  to {
+    transform: scale(1.1) rotate(4deg);
+  }
+}
+
+.cake-top,
+.cake-middle,
+.cake-bottom {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+}
+
+.cake-top {
+  bottom: 122px;
+  width: 250px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+}
+
+.cake-middle {
+  bottom: 60px;
+  width: 285px;
+  height: 78px;
+  border-radius: 14px 14px 25px 25px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.cake-bottom {
+  bottom: 0;
+  width: 320px;
+  height: 75px;
+  border-radius: 18px 18px 35px 35px;
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.wish-complete {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.reset-cake-button {
+  margin-top: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  color: inherit;
+  border-radius: 999px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   SECRET COMPLETION + FINAL WISH MODAL
+   ========================================================= */
+
+.secret-complete-modal,
+.final-wish-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(7, 2, 10, 0.92);
+  backdrop-filter: blur(15px);
+}
+
+.secret-complete-card,
+.final-wish-card {
+  position: relative;
+  width: min(620px, 100%);
+  padding: 45px 30px;
+  text-align: center;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(35, 15, 40, 0.97);
+  color: white;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.55);
+}
+
+.secret-big-heart {
+  font-size: 65px;
+  animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+.secret-complete-card h2,
+.final-wish-card h2 {
+  font-size: clamp(30px, 6vw, 48px);
+  line-height: 1.12;
+  margin: 15px 0;
+}
+
+.secret-complete-card p,
+.final-wish-card p {
+  line-height: 1.8;
+  opacity: 0.75;
+}
+
+.secret-complete-card button,
+.final-wish-card button {
+  margin-top: 20px;
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 24px;
+  background: white;
+  color: #2b102f;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   FINAL FIREWORKS
+   ========================================================= */
+
+.final-firework {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+  box-shadow:
+    0 0 12px 5px rgba(255, 255, 255, 0.35);
+  animation: explode 2.4s ease-out infinite;
+}
+
+.firework-one {
+  left: 15%;
+  top: 25%;
+}
+
+.firework-two {
+  right: 18%;
+  top: 20%;
+  animation-delay: 0.6s;
+}
+
+.firework-three {
+  left: 50%;
+  top: 12%;
+  animation-delay: 1.1s;
+}
+
+@keyframes explode {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+    box-shadow:
+      0 0 0 0 rgba(255, 255, 255, 0);
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.8;
+    transform: scale(1);
+    box-shadow:
+      0 0 30px 18px rgba(255, 255, 255, 0.18);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(2.8);
+    box-shadow:
+      0 0 60px 30px rgba(255, 255, 255, 0);
+  }
+}
+
+.final-wish-stars {
+  font-size: 25px;
+  letter-spacing: 12px;
+}
+
+.final-wish-number {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 4px;
+}
+
+
+/* =========================================================
+   TRUE HIDDEN #1313 EASTER EGG
+   =========================================================
+   
+   The old visible 13-button grid is no longer used.
+
+   These markers are placed around the website and are
+   discovered while scrolling.
+   ========================================================= */
+
+.hero,
+.intro-section,
+.story-section,
+.distance-section,
+.road-movie-invitation,
+.gallery-section,
+.special-date-section,
+.message-section,
+.night-sky-section,
+.cake-section,
+.birthday-section {
+  position: relative;
+}
+
+
+/* =========================================================
+   HIDDEN #1313 MARKER
+   ========================================================= */
+
+.hidden-1313-marker {
+  position: absolute;
+  z-index: 25;
+
+  width: 42px;
+  height: 42px;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+
+  color: rgba(255, 205, 225, 0.16);
+
+  cursor: pointer;
+
+  opacity: 0.45;
+
+  transition:
+    opacity 0.3s ease,
+    color 0.3s ease,
+    filter 0.3s ease,
+    transform 0.3s ease;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hidden-1313-marker span {
+  display: block;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  transform: rotate(-7deg);
+
+  text-shadow:
+    0 0 12px rgba(255, 120, 180, 0.2);
+}
+
+.hidden-1313-marker:hover,
+.hidden-1313-marker:focus-visible,
+.hidden-1313-marker.is-visible {
+  opacity: 1;
+
+  color: rgba(255, 205, 225, 0.85);
+
+  filter:
+    drop-shadow(
+      0 0 12px rgba(255, 110, 180, 0.55)
+    );
+
+  outline: none;
+
+  transform: scale(1.08);
+}
+
+.hidden-1313-marker.found {
+  color: rgba(255, 150, 195, 0.95);
+  opacity: 0.9;
+}
+
+.hidden-1313-marker.found span {
+  font-size: 17px;
+  transform: none;
+}
+
+
+/* =========================================================
+   MARKER POSITIONS
+   ========================================================= */
+
+.secret-marker-hero {
+  top: 26%;
+  right: 10%;
+}
+
+.secret-marker-intro {
+  top: 17%;
+  left: 9%;
+}
+
+.secret-marker-story-one {
+  top: 21%;
+  right: 6%;
+}
+
+.secret-marker-story-two {
+  bottom: 17%;
+  left: 7%;
+}
+
+.secret-marker-distance {
+  top: 30%;
+  right: 12%;
+}
+
+.secret-marker-movie {
+  bottom: 21%;
+  left: 9%;
+}
+
+.secret-marker-gallery-one {
+  top: 17%;
+  left: 6%;
+}
+
+.secret-marker-gallery-two {
+  bottom: 14%;
+  right: 7%;
+}
+
+.secret-marker-date {
+  top: 24%;
+  right: 9%;
+}
+
+.secret-marker-message {
+  bottom: 18%;
+  left: 8%;
+}
+
+.secret-marker-night {
+  top: 38%;
+  left: 13%;
+}
+
+.secret-marker-cake {
+  top: 19%;
+  right: 8%;
+}
+
+.secret-marker-birthday {
+  bottom: 23%;
+  right: 10%;
+}
+
+
+/* =========================================================
+   SMALL HUNT TIP
+   ========================================================= */
+
+.secret-hunt-tip {
+  margin-top: 22px;
+
+  font-size: 11px;
+
+  letter-spacing: 2px;
+
+  opacity: 0.5;
+}
+
+
+/* =========================================================
+   EXTRA CINEMATIC EXPERIENCE
+   ========================================================= */
+
+
+/* =========================================================
+   CHOOSE A MEMORY
+   ========================================================= */
+
+.extra-memory-section,
+.hidden-letter-section,
+.last-question-section,
+.final-secret-section {
+  position: relative;
+
+  z-index: 2;
+
+  padding: 120px 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.extra-section-heading {
+  width: min(850px, 94%);
+
+  text-align: center;
+
+  margin-bottom: 55px;
+}
+
+.extra-eyebrow {
+  display: block;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+
+  opacity: 0.65;
+}
+
+.extra-section-heading h2 {
+  margin: 18px 0;
+
+  font-size: clamp(38px, 6vw, 70px);
+
+  line-height: 1.08;
+}
+
+.extra-section-heading p {
+  max-width: 620px;
+
+  margin: 0 auto;
+
+  line-height: 1.8;
+
+  opacity: 0.75;
+}
+
+.memory-choice-grid {
+  width: min(1000px, 94%);
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 22px;
+}
+
+.memory-choice-card {
+  min-height: 250px;
+
+  padding: 35px 25px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  border-radius: 28px;
+
+  background: rgba(255, 255, 255, 0.045);
+
+  color: white;
+
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 13px;
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.memory-choice-card:hover {
+  border-color: rgba(255, 190, 220, 0.35);
+
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.memory-choice-icon {
+  font-size: 48px;
+}
+
+.memory-choice-title {
+  font-size: 22px;
+
+  font-weight: 700;
+}
+
+.memory-choice-small {
+  font-size: 11px;
+
+  opacity: 0.55;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   HIDDEN LETTERS
+   ========================================================= */
+
+.hidden-letter-grid {
+  width: min(1000px, 94%);
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 22px;
+}
+
+.hidden-letter-card {
+  min-height: 230px;
+
+  padding: 35px 25px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  border-radius: 25px;
+
+  background: rgba(255, 255, 255, 0.045);
+
+  color: white;
+
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.hidden-letter-card:hover {
+  border-color: rgba(255, 190, 220, 0.35);
+
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.hidden-letter-card > span {
+  font-size: 19px;
+
+  font-weight: 700;
+}
+
+.hidden-letter-card small {
+  opacity: 0.55;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.envelope-icon {
+  width: 65px;
+  height: 65px;
+
+  border-radius: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 150, 200, 0.12);
+}
+
+
+/* =========================================================
+   EXTRA MODALS
+   ========================================================= */
+
+.extra-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 11000;
+
+  padding: 20px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(7, 3, 12, 0.88);
+
+  backdrop-filter: blur(15px);
+}
+
+.extra-modal-card,
+.letter-paper-card {
+  width: min(620px, 100%);
+
+  padding: 50px 38px;
+
+  border-radius: 30px;
+
+  text-align: center;
+
+  background: rgba(35, 16, 42, 0.96);
+
+  border: 1px solid rgba(255, 190, 215, 0.25);
+
+  box-shadow:
+    0 30px 100px rgba(0, 0, 0, 0.55);
+}
+
+.extra-modal-icon {
+  font-size: 58px;
+
+  margin-bottom: 20px;
+}
+
+.extra-modal-card h2,
+.letter-paper-card h2 {
+  font-size: clamp(30px, 5vw, 50px);
+
+  line-height: 1.1;
+
+  margin: 15px 0 20px;
+}
+
+.extra-modal-card p,
+.letter-paper-card p {
+  line-height: 1.85;
+
+  opacity: 0.82;
+}
+
+.extra-close-button {
+  margin-top: 25px;
+
+  min-height: 48px;
+
+  padding: 12px 25px;
+
+  border-radius: 999px;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  background: rgba(255, 255, 255, 0.08);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.extra-close-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   LETTER PAPER
+   ========================================================= */
+
+.letter-paper-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 235, 244, 0.98),
+      rgba(255, 213, 232, 0.96)
+    );
+
+  color: #35182b;
+}
+
+.letter-paper-card .extra-eyebrow {
+  color: #6b3b52;
+}
+
+.letter-paper-heart {
+  margin-bottom: 20px;
+
+  color: #b42d68;
+}
+
+.letter-paper-signature {
+  margin-top: 25px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   NIGHT SKY
+   ========================================================= */
+
+.night-sky-section {
+  position: relative;
+
+  min-height: 100vh;
+
+  z-index: 2;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 30%,
+      rgba(100, 65, 150, 0.28),
+      transparent 35%
+    ),
+    linear-gradient(
+      180deg,
+      #09071a,
+      #03030c
+    );
+}
+
+.night-sky-stars {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+}
+
+.night-sky-stars span {
+  position: absolute;
+
+  font-size: 14px;
+
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.night-moon {
+  position: absolute;
+
+  top: 13%;
+  right: 14%;
+
+  color: rgba(255, 240, 245, 0.88);
+
+  filter:
+    drop-shadow(
+      0 0 35px rgba(255, 220, 235, 0.3)
+    );
+}
+
+.night-sky-content {
+  position: relative;
+
+  z-index: 3;
+
+  width: min(800px, 92%);
+
+  text-align: center;
+}
+
+.night-sky-content h2 {
+  margin: 20px 0;
+
+  font-size: clamp(40px, 6vw, 75px);
+
+  line-height: 1.05;
+}
+
+.night-sky-content p {
+  line-height: 1.9;
+
+  opacity: 0.7;
+}
+
+.night-sky-number {
+  margin-top: 40px;
+
+  font-size: 24px;
+
+  letter-spacing: 8px;
+
+  opacity: 0.65;
+}
+
+
+/* =========================================================
+   ONE LAST QUESTION
+   ========================================================= */
+
+.last-question-card {
+  width: min(850px, 94%);
+
+  padding: 65px 40px;
+
+  text-align: center;
+
+  border-radius: 32px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  background: rgba(255, 255, 255, 0.045);
+
+  backdrop-filter: blur(15px);
+}
+
+.last-question-card h2 {
+  margin: 20px 0;
+
+  font-size: clamp(35px, 5vw, 60px);
+
+  line-height: 1.08;
+}
+
+.last-question-card > p {
+  opacity: 0.7;
+}
+
+.last-question-options {
+  margin-top: 35px;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 14px;
+}
+
+.last-question-options button {
+  min-height: 55px;
+
+  padding: 12px 18px;
+
+  border-radius: 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  background: rgba(255, 255, 255, 0.05);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition:
+    0.25s ease;
+}
+
+.last-question-options button:hover,
+.last-question-options button.selected {
+  background: rgba(255, 130, 180, 0.18);
+
+  border-color:
+    rgba(255, 180, 210, 0.45);
+}
+
+.question-response {
+  margin: 28px auto 0;
+
+  max-width: 550px;
+
+  display: flex;
+
+  gap: 10px;
+
+  justify-content: center;
+  align-items: center;
+
+  line-height: 1.6;
+
+  opacity: 0.85;
+}
+
+
+/* =========================================================
+   FINAL SECRET
+   ========================================================= */
+
+.final-secret-section {
+  min-height: 80vh;
+
+  justify-content: center;
+
+  text-align: center;
+}
+
+.final-secret-content {
+  width: min(800px, 94%);
+}
+
+.final-secret-content h2 {
+  margin: 20px 0;
+
+  font-size: clamp(40px, 6vw, 70px);
+
+  line-height: 1.05;
+}
+
+.final-secret-content p {
+  max-width: 600px;
+
+  margin: 0 auto;
+
+  line-height: 1.8;
+
+  opacity: 0.7;
+}
+
+.final-secret-button {
+  margin-top: 40px;
+
+  width: 105px;
+  height: 105px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 190, 215, 0.35);
+
+  background: rgba(255, 110, 170, 0.12);
+
+  color: white;
+
+  cursor: pointer;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 7px;
+
+  box-shadow:
+    0 0 45px rgba(255, 100, 180, 0.16);
+
+  transition:
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.final-secret-button:hover {
+  background: rgba(255, 110, 170, 0.18);
+
+  box-shadow:
+    0 0 65px rgba(255, 100, 180, 0.28);
+}
+
+.final-secret-button span {
+  font-size: 14px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   FINAL SECRET MODAL
+   ========================================================= */
+
+.final-secret-overlay {
+  background:
+    radial-gradient(
+      circle,
+      rgba(100, 25, 90, 0.7),
+      rgba(4, 2, 10, 0.97)
+    );
+}
+
+.final-secret-stars {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+}
+
+.final-secret-stars span {
+  position: absolute;
+
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.final-secret-card {
+  position: relative;
+
+  z-index: 5;
+
+  width: min(650px, 100%);
+
+  padding: 55px 35px;
+
+  text-align: center;
+
+  border-radius: 32px;
+
+  border: 1px solid rgba(255, 190, 215, 0.28);
+
+  background: rgba(30, 12, 38, 0.95);
+
+  box-shadow:
+    0 30px 100px rgba(0, 0, 0, 0.6),
+    0 0 70px rgba(255, 100, 180, 0.12);
+}
+
+.final-secret-heart {
+  margin-bottom: 20px;
+
+  animation:
+    finalHeartBeat 1.6s ease-in-out infinite;
+}
+
+@keyframes finalHeartBeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.final-secret-card h2 {
+  margin: 20px 0;
+
+  font-size: clamp(38px, 6vw, 65px);
+
+  line-height: 1.05;
+}
+
+.final-secret-card p {
+  line-height: 1.8;
+
+  opacity: 0.72;
+}
+
+.final-secret-card strong {
+  display: block;
+
+  margin: 25px auto;
+
+  max-width: 480px;
+
+  line-height: 1.7;
+
+  font-size: 18px;
+}
+
+.final-secret-number {
+  margin: 25px 0;
+
+  font-size: 20px;
+
+  letter-spacing: 5px;
+}
+
+
+/* =========================================================
+   CINEMATIC CREDITS
+   ========================================================= */
+
+.cinematic-credits {
+  position: relative;
+
+  z-index: 2;
+
+  min-height: 100vh;
+
+  padding: 120px 20px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      rgba(0, 0, 0, 0.4)
+    );
+}
+
+.credits-content {
+  width: min(600px, 94%);
+}
+
+.credits-line {
+  width: 80px;
+
+  height: 1px;
+
+  margin: 0 auto 35px;
+
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.credits-content > span {
+  font-size: 10px;
+
+  letter-spacing: 6px;
+
+  opacity: 0.55;
+}
+
+.credits-content h2 {
+  margin: 25px 0;
+
+  font-size: clamp(50px, 8vw, 90px);
+
+  line-height: 1;
+}
+
+.credits-content > p {
+  line-height: 1.9;
+
+  opacity: 0.65;
+}
+
+.credits-block {
+  margin-top: 35px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.credits-block small {
+  font-size: 9px;
+
+  letter-spacing: 4px;
+
+  opacity: 0.45;
+}
+
+.credits-block strong {
+  font-size: 20px;
+}
+
+.credits-stars {
+  margin: 50px 0 35px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.credits-end {
+  font-size: 11px;
+
+  letter-spacing: 7px;
+
+  opacity: 0.55;
+}
+
+.credits-footer {
+  margin-top: 25px;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .extra-memory-section,
+  .hidden-letter-section,
+  .last-question-section,
+  .final-secret-section {
+    padding: 85px 16px;
+  }
+
+  .extra-section-heading {
+    width: 100%;
+
+    margin-bottom: 35px;
+  }
+
+  .extra-section-heading h2 {
+    font-size: clamp(32px, 9vw, 48px);
+  }
+
+  .extra-section-heading p {
+    font-size: 14px;
+  }
+
+  .memory-choice-grid,
+  .hidden-letter-grid {
+    width: 100%;
+
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+  .memory-choice-card {
+    min-height: 190px;
+
+    padding: 25px 20px;
+  }
+
+  .hidden-letter-card {
+    min-height: 180px;
+  }
+
+  .extra-overlay {
+    padding: 12px;
+  }
+
+  .extra-modal-card,
+  .letter-paper-card {
+    width: 100%;
+
+    padding: 38px 22px;
+
+    border-radius: 23px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+  }
+
+  .night-sky-section {
+    min-height: 750px;
+  }
+
+  .night-moon {
+    top: 10%;
+    right: 8%;
+  }
+
+  .night-moon svg {
+    width: 55px;
+    height: 55px;
+  }
+
+  .night-sky-content {
+    width: 100%;
+
+    padding: 20px;
+  }
+
+  .night-sky-content h2 {
+    font-size: clamp(34px, 9vw, 50px);
+  }
+
+  .last-question-card {
+    width: 100%;
+
+    padding: 40px 20px;
+
+    border-radius: 24px;
+  }
+
+  .last-question-card h2 {
+    font-size: clamp(31px, 9vw, 48px);
+  }
+
+  .last-question-options {
+    grid-template-columns: 1fr;
+  }
+
+  .question-response {
+    font-size: 13px;
+  }
+
+  .final-secret-content {
+    width: 100%;
+  }
+
+  .final-secret-content h2 {
+    font-size: clamp(34px, 9vw, 50px);
+  }
+
+  .final-secret-card {
+    padding: 40px 20px;
+
+    border-radius: 24px;
+  }
+
+  .final-secret-card h2 {
+    font-size: clamp(34px, 9vw, 50px);
+  }
+
+  .final-secret-card p {
+    font-size: 14px;
+  }
+
+  .final-secret-card strong {
+    font-size: 16px;
+  }
+
+  .cinematic-credits {
+    min-height: 750px;
+
+    padding: 90px 18px;
+  }
+
+  .credits-content h2 {
+    font-size: clamp(52px, 14vw, 80px);
+  }
+}
+
+
+/* =========================================================
+   HIDDEN #1313 MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .hidden-1313-marker {
+    width: 38px;
+    height: 38px;
+
+    opacity: 0.38;
+  }
+
+  .hidden-1313-marker span {
+    font-size: 8px;
+  }
+
+  .hidden-1313-marker:hover,
+  .hidden-1313-marker:focus-visible,
+  .hidden-1313-marker.is-visible {
+    opacity: 0.95;
+  }
+
+  .secret-marker-hero {
+    top: 24%;
+    right: 7%;
+  }
+
+  .secret-marker-intro {
+    top: 14%;
+    left: 5%;
+  }
+
+  .secret-marker-story-one {
+    top: 14%;
+    right: 4%;
+  }
+
+  .secret-marker-story-two {
+    bottom: 10%;
+    left: 4%;
+  }
+
+  .secret-marker-distance {
+    top: 23%;
+    right: 5%;
+  }
+
+  .secret-marker-movie {
+    bottom: 12%;
+    left: 5%;
+  }
+
+  .secret-marker-gallery-one {
+    top: 9%;
+    left: 4%;
+  }
+
+  .secret-marker-gallery-two {
+    bottom: 8%;
+    right: 4%;
+  }
+
+  .secret-marker-date {
+    top: 18%;
+    right: 5%;
+  }
+
+  .secret-marker-message {
+    bottom: 10%;
+    left: 5%;
+  }
+
+  .secret-marker-night {
+    top: 32%;
+    left: 5%;
+  }
+
+  .secret-marker-cake {
+    top: 12%;
+    right: 5%;
+  }
+
+  .secret-marker-birthday {
+    bottom: 13%;
+    right: 5%;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .hidden-1313-marker {
+    width: 34px;
+    height: 34px;
+  }
+
+  .memory-choice-card {
+    min-height: 170px;
+  }
+
+  .memory-choice-icon {
+    font-size: 40px;
+  }
+
+  .final-secret-button {
+    width: 90px;
+    height: 90px;
+  }
+
+  .credits-end {
+    letter-spacing: 4px;
+  }
+}
+
+
+/* =========================================================
+   HER UNIVERSE - NEW INTERACTIVE FEATURES
+   Add this at the END of App.css
+   ========================================================= */
+
+.secret-hunt-section {
+  position: relative;
+  padding: 120px 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.secret-hunt-content {
+  width: min(900px, 100%);
+  margin: 0 auto;
+}
+
+.secret-hunt-content h2 {
+  margin: 14px 0;
+  font-size: clamp(38px, 6vw, 70px);
+  line-height: 1.05;
+}
+
+.secret-hunt-content h2 span {
+  display: inline-block;
+  animation: secretGlow 2s ease-in-out infinite;
+}
+
+.secret-hunt-content p {
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.8;
+  opacity: .75;
+}
+
+.secret-counter {
+  margin: 25px auto;
+  font-size: 14px;
+  letter-spacing: 2px;
+  opacity: .8;
+}
+
+.secret-counter strong {
+  font-size: 32px;
+  letter-spacing: 0;
+}
+
+.secret-grid {
+  width: min(760px, 100%);
+  margin: 35px auto 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.secret-spot {
+  min-height: 72px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.055);
+  color: rgba(255,255,255,.5);
+  font-weight: 800;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: .25s ease;
+}
+
+.secret-spot:hover {
+  background: rgba(255,255,255,.12);
+}
+
+.secret-spot.found {
+  color: white;
+  background: rgba(255,255,255,.16);
+  box-shadow: 0 0 25px rgba(255,255,255,.12);
+}
+
+@keyframes secretGlow {
+  0%,100% { opacity: .7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.06); }
+}
+
+/* ---------------- CAKE ---------------- */
+
+.cake-section {
+  position: relative;
+  padding: 120px 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.cake-content {
+  width: min(700px, 100%);
+  margin: 0 auto;
+}
+
+.cake-content h2 {
+  margin: 14px 0 8px;
+  font-size: clamp(34px, 5vw, 58px);
+}
+
+.cake-content p {
+  opacity: .7;
+  line-height: 1.7;
+}
+
+.birthday-cake {
+  position: relative;
+  width: min(340px, 90vw);
+  height: 245px;
+  margin: 55px auto 20px;
+}
+
+.cake-candles {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 34px;
+  align-items: flex-end;
+}
+
+.cake-candle {
+  position: relative;
+  width: 42px;
+  height: 85px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.candle-stick {
+  position: absolute;
+  left: 13px;
+  bottom: 0;
+  width: 16px;
+  height: 62px;
+  border-radius: 8px 8px 3px 3px;
+  background: rgba(255,255,255,.8);
+  box-shadow: inset 0 -8px rgba(0,0,0,.08);
+}
+
+.candle-flame {
+  position: absolute;
+  left: 7px;
+  top: 0;
+  font-size: 30px;
+  animation: flameDance .65s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 12px rgba(255,210,120,.8));
+}
+
+@keyframes flameDance {
+  from { transform: scale(.9) rotate(-4deg); }
+  to { transform: scale(1.1) rotate(4deg); }
+}
+
+.cake-top, .cake-middle, .cake-bottom {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 18px 45px rgba(0,0,0,.2);
+}
+
+.cake-top {
+  bottom: 122px;
+  width: 250px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.16);
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+}
+
+.cake-middle {
+  bottom: 60px;
+  width: 285px;
+  height: 78px;
+  border-radius: 14px 14px 25px 25px;
+  background: rgba(255,255,255,.12);
+}
+
+.cake-bottom {
+  bottom: 0;
+  width: 320px;
+  height: 75px;
+  border-radius: 18px 18px 35px 35px;
+  background: rgba(255,255,255,.09);
+}
+
+.wish-complete {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.reset-cake-button {
+  margin-top: 12px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.06);
+  color: inherit;
+  border-radius: 999px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+/* ---------------- SECRET MODAL ---------------- */
+
+.secret-complete-modal, .final-wish-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(7,2,10,.92);
+  backdrop-filter: blur(15px);
+}
+
+.secret-complete-card, .final-wish-card {
+  position: relative;
+  width: min(620px, 100%);
+  padding: 45px 30px;
+  text-align: center;
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(35,15,40,.97);
+  color: white;
+  box-shadow: 0 30px 100px rgba(0,0,0,.55);
+}
+
+.secret-big-heart {
+  font-size: 65px;
+  animation: heartbeat 1.2s infinite;
+}
+
+.secret-complete-card h2, .final-wish-card h2 {
+  font-size: clamp(30px, 6vw, 48px);
+  line-height: 1.12;
+  margin: 15px 0;
+}
+
+.secret-complete-card p, .final-wish-card p {
+  line-height: 1.8;
+  opacity: .75;
+}
+
+.secret-complete-card button, .final-wish-card button {
+  margin-top: 20px;
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 24px;
+  background: white;
+  color: #2b102f;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* ---------------- FINAL FIREWORKS ---------------- */
+
+.final-firework {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 12px 5px rgba(255,255,255,.35);
+  animation: explode 2.4s ease-out infinite;
+}
+
+.firework-one { left: 15%; top: 25%; }
+.firework-two { right: 18%; top: 20%; animation-delay: .6s; }
+.firework-three { left: 50%; top: 12%; animation-delay: 1.1s; }
+
+@keyframes explode {
+  0% { opacity: 0; transform: scale(.3); box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+  25% { opacity: 1; }
+  70% { opacity: .8; transform: scale(1); box-shadow: 0 0 30px 18px rgba(255,255,255,.18); }
+  100% { opacity: 0; transform: scale(2.8); box-shadow: 0 0 60px 30px rgba(255,255,255,0); }
+}
+
+.final-wish-stars {
+  font-size: 25px;
+  letter-spacing: 12px;
+}
+
+.final-wish-number {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 4px;
+}
+
+/* ---------------- MOBILE ---------------- */
+
+@media (max-width: 600px) {
+  .secret-hunt-section, .cake-section {
+    padding: 85px 16px;
+  }
+
+  .secret-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .secret-spot {
+    min-height: 58px;
+    font-size: 12px;
+    border-radius: 15px;
+  }
+
+  .birthday-cake {
+    transform: scale(.86);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cake-content h2 {
+    line-height: 1.15;
+  }
+
+  .secret-complete-modal, .final-wish-modal {
+    padding: 12px;
+  }
+
+  .secret-complete-card, .final-wish-card {
+    padding: 35px 20px;
+    border-radius: 22px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .secret-complete-card h2, .final-wish-card h2 {
+    font-size: 31px;
+  }
+
+  .final-firework {
+    transform: scale(.7);
+  }
+}
+
+@media (max-width: 380px) {
+  .secret-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .birthday-cake {
+    transform: scale(.72);
+    margin-left: -9%;
+    margin-right: -9%;
+  }
+}
+
+/* =========================================================
+   TRUE HIDDEN #1313 EASTER-EGG MARKERS
+   The old 13-card grid is intentionally replaced by these
+   small discoverable symbols spread across the story.
+   ========================================================= */
+
+.hero,
+.intro-section,
+.story-section,
+.distance-section,
+.road-movie-invitation,
+.gallery-section,
+.special-date-section,
+.message-section,
+.night-sky-section,
+.cake-section,
+.birthday-section {
+  position: relative;
+}
+
+.hidden-1313-marker {
+  position: absolute;
+  z-index: 25;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: rgba(255, 205, 225, 0.16);
+  cursor: pointer;
+  opacity: 0.45;
+  transition: opacity 0.3s ease, color 0.3s ease, filter 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hidden-1313-marker span {
+  display: block;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  transform: rotate(-7deg);
+  text-shadow: 0 0 12px rgba(255, 120, 180, 0.2);
+}
+
+.hidden-1313-marker:hover,
+.hidden-1313-marker:focus-visible,
+.hidden-1313-marker.is-visible {
+  opacity: 1;
+  color: rgba(255, 205, 225, 0.85);
+  filter: drop-shadow(0 0 12px rgba(255, 110, 180, 0.55));
+  outline: none;
+}
+
+.hidden-1313-marker.found {
+  color: rgba(255, 150, 195, 0.95);
+  opacity: 0.9;
+}
+
+.hidden-1313-marker.found span {
+  font-size: 17px;
+  transform: none;
+}
+
+/* Each marker has its own location. They are deliberately
+   irregular so the hunt feels like part of the website. */
+.secret-marker-hero {
+  top: 26%;
+  right: 10%;
+}
+
+.secret-marker-intro {
+  top: 17%;
+  left: 9%;
+}
+
+.secret-marker-story-one {
+  top: 21%;
+  right: 6%;
+}
+
+.secret-marker-story-two {
+  bottom: 17%;
+  left: 7%;
+}
+
+.secret-marker-distance {
+  top: 30%;
+  right: 12%;
+}
+
+.secret-marker-movie {
+  bottom: 21%;
+  left: 9%;
+}
+
+.secret-marker-gallery-one {
+  top: 17%;
+  left: 6%;
+}
+
+.secret-marker-gallery-two {
+  bottom: 14%;
+  right: 7%;
+}
+
+.secret-marker-date {
+  top: 24%;
+  right: 9%;
+}
+
+.secret-marker-message {
+  bottom: 18%;
+  left: 8%;
+}
+
+.secret-marker-night {
+  top: 38%;
+  left: 13%;
+}
+
+.secret-marker-cake {
+  top: 19%;
+  right: 8%;
+}
+
+.secret-marker-birthday {
+  bottom: 23%;
+  right: 10%;
+}
+
+.secret-hunt-tip {
+  margin-top: 22px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  opacity: 0.5;
+}
+
+@media (max-width: 700px) {
+  .hidden-1313-marker {
+    width: 38px;
+    height: 38px;
+    opacity: 0.38;
+  }
+
+  .hidden-1313-marker span {
+    font-size: 8px;
+  }
+
+  .hidden-1313-marker:hover,
+  .hidden-1313-marker:focus-visible,
+  .hidden-1313-marker.is-visible {
+    opacity: 0.95;
+  }
+
+  .secret-marker-hero { top: 24%; right: 7%; }
+  .secret-marker-intro { top: 14%; left: 5%; }
+  .secret-marker-story-one { top: 14%; right: 4%; }
+  .secret-marker-story-two { bottom: 10%; left: 4%; }
+  .secret-marker-distance { top: 23%; right: 5%; }
+  .secret-marker-movie { bottom: 12%; left: 5%; }
+  .secret-marker-gallery-one { top: 9%; left: 4%; }
+  .secret-marker-gallery-two { bottom: 8%; right: 4%; }
+  .secret-marker-date { top: 18%; right: 5%; }
+  .secret-marker-message { bottom: 10%; left: 5%; }
+  .secret-marker-night { top: 32%; left: 5%; }
+  .secret-marker-cake { top: 12%; right: 5%; }
+  .secret-marker-birthday { bottom: 13%; right: 5%; }
+}
+
+@media (max-width: 380px) {
+  .hidden-1313-marker {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* =====================================================
+   SPECIAL SHAYARI SECTION
+===================================================== */
+.shayari-section {
+  position: relative;
+  padding: 110px 24px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 182, 193, 0.14), transparent 30%),
+    radial-gradient(circle at 80% 80%, rgba(255, 105, 180, 0.10), transparent 30%);
+}
+
+.shayari-card {
+  position: relative;
+  width: min(900px, 100%);
+  margin: 0 auto;
+  padding: 64px 56px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.22);
+}
+
+.shayari-heart {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 27px;
+  background: rgba(255, 105, 180, 0.14);
+  box-shadow: 0 0 35px rgba(255, 105, 180, 0.18);
+}
+
+.shayari-card h2 {
+  margin: 22px auto 28px;
+  max-width: 780px;
+  font-family: Georgia, "Noto Serif Devanagari", serif;
+  font-size: clamp(1.45rem, 3vw, 2.15rem);
+  line-height: 1.9;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.shayari-birthday {
+  margin: 0 auto 18px;
+  font-family: Georgia, "Noto Serif Devanagari", serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.55rem);
+  line-height: 1.7;
+}
+
+.shayari-ending {
+  margin: 0 auto;
+  font-family: Georgia, "Noto Serif Devanagari", serif;
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.8;
+  opacity: 0.86;
+}
+
+.shayari-number {
+  margin-top: 30px;
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  opacity: 0.72;
+}
+
+.secret-marker-shayari {
+  position: absolute;
+  top: 28px;
+  right: 7%;
+}
+
+@media (max-width: 600px) {
+  .shayari-section {
+    padding: 75px 16px;
+  }
+
+  .shayari-card {
+    padding: 42px 20px;
+    border-radius: 24px;
+  }
+
+  .shayari-card h2 {
+    line-height: 1.75;
+  }
+
+  .secret-marker-shayari {
+    top: 18px;
+    right: 5%;
+  }
+}
